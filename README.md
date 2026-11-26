@@ -27,7 +27,7 @@ npm run dev
 
 Open http://localhost:5173. The Vite dev server proxies `/api` to the backend on port 8000.
 
-Tests: `pytest -q`
+Tests: `pytest -q` (backend) and `cd frontend && npm test` (frontend API client)
 
 ## Decisions
 
