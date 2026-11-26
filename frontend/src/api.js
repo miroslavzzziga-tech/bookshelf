@@ -1,3 +1,4 @@
+const UNREACHABLE = "Can't reach the server right now. Please try again.";
 const GENERIC = "Something went wrong. Please try again.";
 const INVALID = "Please enter a title and author (max 200 characters).";
 
@@ -6,10 +7,11 @@ async function request(path, options) {
   try {
     response = await fetch(path, options);
   } catch {
-    throw new Error(GENERIC);
+    throw new Error(UNREACHABLE);
   }
   if (response.status === 204) return null;
   if (response.ok) return response.json();
+  if ([500, 502, 503, 504].includes(response.status)) throw new Error(UNREACHABLE);
   let detail;
   try {
     detail = (await response.json()).detail;
