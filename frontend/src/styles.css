@@ -107,6 +107,35 @@ button:focus-visible {
   background: #1c1c1a;
   color: #fff;
   border-color: #1c1c1a;
+  transition: background-color 120ms ease, border-color 120ms ease, transform 80ms ease;
+}
+
+form button,
+.tabs button:not(.active),
+.banner button {
+  transition: background-color 120ms ease, border-color 120ms ease, transform 80ms ease;
+}
+
+form button:hover:not(:disabled),
+.tabs button:not(.active):hover:not(:disabled),
+.banner button:hover:not(:disabled) {
+  background: #efefeb;
+  border-color: #c9c9c3;
+}
+
+form button:active:not(:disabled),
+.tabs button:not(.active):active:not(:disabled),
+.banner button:active:not(:disabled) {
+  background: #e6e6e1;
+  transform: translateY(1px);
+}
+
+.tabs button.active:hover:not(:disabled) {
+  background: #333333;
+}
+
+.tabs button.active:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .muted,
@@ -170,11 +199,21 @@ ul {
 .row-actions button {
   color: #b42318;
   border-color: #f0b4b4;
+  transition: background-color 120ms ease, border-color 120ms ease, transform 80ms ease;
 }
 
 .row-actions button:hover:not(:disabled) {
   background: #fdecec;
   border-color: #b42318;
+}
+
+.row-actions button:active:not(:disabled) {
+  background: #f9d7d7;
+  transform: translateY(1px);
+}
+
+.row-actions select:hover:not(:disabled) {
+  border-color: #c9c9c3;
 }
 
 @media (max-width: 600px) {
@@ -201,5 +240,23 @@ ul {
 
   .row-actions button {
     flex: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  form button,
+  .tabs button,
+  .tabs button.active,
+  .banner button,
+  .row-actions button {
+    transition: none;
+  }
+
+  form button:active:not(:disabled),
+  .tabs button:not(.active):active:not(:disabled),
+  .tabs button.active:active:not(:disabled),
+  .banner button:active:not(:disabled),
+  .row-actions button:active:not(:disabled) {
+    transform: none;
   }
 }
