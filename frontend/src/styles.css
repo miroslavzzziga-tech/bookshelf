@@ -212,6 +212,15 @@ ul {
   transform: translateY(1px);
 }
 
+.row-actions select {
+  box-sizing: content-box;
+  padding: 0.5rem 0.85rem;
+  border-width: 1px;
+  border-radius: 6px;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 .row-actions select:hover:not(:disabled) {
   border-color: #c9c9c3;
 }
