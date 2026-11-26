@@ -173,3 +173,23 @@ ul {
     align-items: stretch;
   }
 }
+
+@media (max-width: 600px) {
+  .book {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .row-actions {
+    gap: 8px;
+  }
+
+  .row-actions select {
+    flex: 1;
+  }
+
+  .row-actions button {
+    flex: none;
+  }
+}
