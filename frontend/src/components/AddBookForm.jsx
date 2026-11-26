@@ -31,7 +31,10 @@ export function AddBookForm({ onAdd }) {
           value={title}
           required
           maxLength={200}
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(event) => {
+            setTitle(event.target.value);
+            setError(null);
+          }}
         />
       </div>
       <div className="field">
@@ -41,7 +44,10 @@ export function AddBookForm({ onAdd }) {
           value={author}
           required
           maxLength={200}
-          onChange={(event) => setAuthor(event.target.value)}
+          onChange={(event) => {
+            setAuthor(event.target.value);
+            setError(null);
+          }}
         />
       </div>
       <button type="submit" disabled={submitting}>
