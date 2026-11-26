@@ -167,6 +167,16 @@ ul {
   align-items: center;
 }
 
+.row-actions button {
+  color: #b42318;
+  border-color: #f0b4b4;
+}
+
+.row-actions button:hover:not(:disabled) {
+  background: #fdecec;
+  border-color: #b42318;
+}
+
 @media (max-width: 600px) {
   form {
     flex-direction: column;
