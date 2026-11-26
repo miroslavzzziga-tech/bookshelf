@@ -35,7 +35,7 @@ Tests: `pytest -q` (backend) and `cd frontend && npm test` (frontend API client)
 
 **Sort order.** The list is split into sections: Currently reading first, then Want to read, then Finished. The user sees what they're reading right now first, and finished books are history. Inside each section books are alphabetical (case-insensitive), which keeps each section clean and easy to glance through.
 
-**Duplicates.** Blocked. There's no reason to have the same book twice; it would just be clutter. Title and author are compared ignoring case and extra spaces, and the database enforces it with a unique constraint. Known gap: a typo ("Dxne") gets through. With more time I'd show a "a similar book is already on your shelf, add anyway?" prompt pointing at the closest match.
+**Duplicates.** Blocked. There's no reason to have the same book twice; it would just be clutter. Title and author are compared ignoring case and extra spaces, and the database enforces it with a unique constraint. Known gap: a typo ("Dxne") gets through. With more time I'd show a "similar book is already on your shelf, add anyway?" prompt pointing at the closest match.
 
 **Loading and errors.** The user should always understand what went wrong. There's a loading state on first load, buttons are disabled while a request is running, a failed load shows a message with Retry, a failed add keeps what the user typed, and a failed status change or removal shows a clear message.
 
