@@ -4,6 +4,8 @@ A small personal reading list: add books, track what you're reading, filter by s
 
 FastAPI + SQLAlchemy + SQLite backend, React (Vite) frontend.
 
+![Bookshelf screenshot](docs/screenshot.png)
+
 ## How to run
 
 Requires Python 3.12 and Node 22.
