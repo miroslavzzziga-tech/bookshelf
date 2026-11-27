@@ -18,8 +18,12 @@ export function BookRow({ book, onStatusChange, onRemove }) {
     Promise.resolve(action()).finally(() => setBusy(false));
   }
   let when = null;
-  if (book.status === "reading" && book.started_at) when = `Started ${formatDate(book.started_at)}`;
-  if (book.status === "finished" && book.finished_at) when = `Finished ${formatDate(book.finished_at)}`;
+  if (book.status === "reading" && book.started_at) {
+    when = `Started ${formatDate(book.started_at)}`;
+  }
+  if (book.status === "finished" && book.finished_at) {
+    when = `Finished ${formatDate(book.finished_at)}`;
+  }
 
   return (
     <li className={`book status-${book.status}`}>
@@ -39,7 +43,12 @@ export function BookRow({ book, onStatusChange, onRemove }) {
             <option key={value} value={value}>{label}</option>
           ))}
         </select>
-        <button type="button" aria-label={`Remove ${book.title}`} disabled={busy} onClick={() => run(() => onRemove(book))}>
+        <button
+          type="button"
+          aria-label={`Remove ${book.title}`}
+          disabled={busy}
+          onClick={() => run(() => onRemove(book))}
+        >
           Remove
         </button>
       </div>
