@@ -172,3 +172,17 @@ def test_post_finished_sets_finished_at(client):
     body = response.json()
     assert body["status"] == "finished"
     assert body["finished_at"] is not None
+
+
+def test_timestamps_are_returned_as_utc(client):
+    created = client.post(
+        "/api/books",
+        json={"title": "Dune", "author": "Frank Herbert", "status": "finished"},
+    )
+    assert created.status_code == 201
+    response = client.get("/api/books")
+    assert response.status_code == 200
+    book = response.json()[0]
+    assert book["created_at"].endswith("Z")
+    assert book["updated_at"].endswith("Z")
+    assert book["finished_at"].endswith("Z")

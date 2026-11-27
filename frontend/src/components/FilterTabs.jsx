@@ -9,7 +9,13 @@ export function FilterTabs({ filter, counts, onChange }) {
   return (
     <div className="tabs">
       {TABS.map(([id, label]) => (
-        <button key={id} type="button" aria-pressed={filter === id} className={filter === id ? "active" : undefined} onClick={() => onChange(id)}>
+        <button
+          key={id}
+          type="button"
+          aria-pressed={filter === id}
+          className={filter === id ? "active" : undefined}
+          onClick={() => onChange(id)}
+        >
           {label} ({counts[id]})
         </button>
       ))}
